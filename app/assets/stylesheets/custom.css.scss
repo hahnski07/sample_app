@@ -1,5 +1,8 @@
 @import "bootstrap";
 
+$lightGray: #999;
+$grayMediumLight: #EAEAEA;
+
 html
 {
 	overflow-y: scroll;
@@ -23,11 +26,10 @@ textarea
 .center
 {
 	text-align: center;
-}
-
-.center h1
-{
-	margin-bottom: 10px;
+	h1
+	{
+		margin-bottom: 10px;
+	}
 }
 
 h1, h2, h3, h4, h5, h6
@@ -50,7 +52,7 @@ h2
 	margin-bottom: 30px;
 	text-align: center;
 	font-weight: normal;
-	color: #999;
+	color: $grayLight;
 }
 
 p
@@ -70,45 +72,39 @@ p
 	padding-top: 9px;
 	font-weight: bold;
 	line-height: 1;
-}
-
-#logo:hover
-{
-	color: #FFF;
-	text-decoration: none;
+	&:hover
+	{
+		color: #FFF;
+		text-decoration: none;
+	}
 }
 
 footer
 {
 	margin-top: 45px;
 	padding-top: 5px;
-	border-top: 1px solid #EAEAEA;
-	color: #999;
-}
-
-footer a
-{
-	color: #555;
-}
-
-footer a:hover
-{
-	color: #222;
-}
-
-footer small
-{
-	float: left;
-}
-
-footer ul
-{
-	float: right;
-	list-style: none;
-}
-
-footer ul li
-{
-	float: left;
-	margin-left: 10px;
+	border-top: 1px solid $grayMediumLight;
+	color: $grayLight;
+	a
+	{
+		color: $gray;
+		&:hover
+		{
+			color: $grayDarker;
+		}
+	}
+	small
+	{
+		float: left;
+	}
+	ul
+	{
+		float: right;
+		list-style: none;
+		li
+		{
+			float: left;
+			margin-left: 10px;
+		}
+	}
 }
