@@ -3,6 +3,13 @@
 $lightGray: #999;
 $grayMediumLight: #EAEAEA;
 
+@mixin box_sizing 
+{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 html
 {
 	overflow-y: scroll;
@@ -107,4 +114,13 @@ footer
 			margin-left: 10px;
 		}
 	}
+}
+
+.debug_dump
+{
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: 45px;
+	@include box_sizing;
 }
