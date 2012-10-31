@@ -3,7 +3,7 @@
 
 <ul class="users">
 	<% @users.each do |user| %>
-		<li>
+		<li style="display: block;">
 			<%= gravatar_for user, size: 52 %>
 			<%= link_to user.name, user %>
 		</li>
