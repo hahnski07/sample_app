@@ -147,5 +147,24 @@ describe User do
 	it "should have the right microposts in the right order" do
 		@user.microposts.should == [newer_micropost, older_micropost]
 	end
+	
+	it "should destroy associated microposts" do
+		microposts = @user.microposts.dup
+		@user.destroy
+		microposts.should_not be_empty
+		microposts.each do |micropost|
+			Micropost.find_by_id(micropost.id).should be_nil
+		end
+	end
+	
+	describe "status" do
+		let(:unfollowed_post) do
+			FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
+		end
+		
+		its(:feed) { should include(newer_micropost) }
+		its(:feed) { should include(older_micropost) }
+		its(:feed) { should_not include(unfollowed_post) }
+	end
   end
 end
