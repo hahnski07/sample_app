@@ -29,6 +29,7 @@ describe 'StaticPages' do
 		end
 	end
   
+  
 	describe 'Help page' do
 		before { visit help_path }
 		let(:heading) { 'Help' }
