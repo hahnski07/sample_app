@@ -37,7 +37,7 @@ describe "UserPages" do
 					visit users_path
 				end
 				
-				it { should have_link('delete', href: user_path(User.first)) }
+				it { should have_link('delete', href: user_path(user)) }
 				it "should be able to delete another user" do
 					expect { click_link('delete') }.to change(User, :count).by(-1)
 				end
@@ -93,7 +93,7 @@ describe "UserPages" do
 				fill_in "Name", with: "Example User"
 				fill_in "Email", with: "user@example.com"
 				fill_in "Password", with: "foobar"
-				fill_in "Confirmation", with: "foobar"
+				fill_in "Confirm Password", with: "foobar"
 			end
 			
 			describe "after saving the user" do
@@ -104,10 +104,10 @@ describe "UserPages" do
 				it { should have_selector('div.alert.alert-success', text: 'Welcome') }
 				it { should have_link('Sign out') }
 			end
-		end
-		
-		it "should create a user" do
-			expect { click_button submit }.to change(User, :count).by(1)
+				
+			it "should create a user" do
+				expect { click_button submit }.to change(User, :count).by(1)
+			end
 		end
 	end
 	
